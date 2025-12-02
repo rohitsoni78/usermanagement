@@ -10,7 +10,7 @@ export default function Register()
     const [successMsg,setSuccessMsg]=useState("");
 
     const handleChange=(e)=>{
-        setformData({...formData,[e.target.value]:e.target.value})
+        setformData({...formData,[e.target.name]:e.target.value})
     }
 
     const validate=()=>{
@@ -39,7 +39,7 @@ export default function Register()
     return(
         <>
         <h1>Register Form</h1>
-        <form onSubmit={handleChange}>
+        <form onSubmit={handleSubmit}>
             {successMsg && <h2><mark>{successMsg}</mark></h2>}
 
             <label>Enter Name</label>
@@ -47,15 +47,15 @@ export default function Register()
             {errors.uname && <p><mark>{errors.uname}</mark></p>}
             <br /><br />
             <label>Enter Email</label>
-            <input type="text" name="unemail" onChange={handleChange}/>
+            <input type="text" name="uemail" onChange={handleChange}/>
              {errors.uemail && <p><mark>{errors.uemail}</mark></p>}
             <br /><br />
             <label>Enter Password</label>
-            <input type="text" name="upass" onChange={handleChange}/>
+            <input type="password" name="upass" onChange={handleChange}/>
              {errors.upass && <p><mark>{errors.upass}</mark></p>}
             <br /><br />
             <label>Enter Confirm Password</label>
-            <input type="text" name="ucpass" onChange={handleChange}/>
+            <input type="password" name="ucpass" onChange={handleChange}/>
              {errors.ucpass && <p><mark>{errors.ucpass}</mark></p>}
             <br /><br />
             <input type="submit" value={"Submit"} />
